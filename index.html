@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeMaster - Plataforma Educativa de Programação</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="logo">🎮 CodeMaster</h1>
+                <p class="tagline">Aprenda Programação com Desafios Divertidos!</p>
+            </div>
+            <div class="stats">
+                <div class="stat-box">
+                    <span class="stat-label">Pontos</span>
+                    <span class="stat-value" id="totalPoints">0</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-label">Desafios</span>
+                    <span class="stat-value" id="completedChallenges">0/17</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-tabs">
+                <button class="nav-btn active" data-filter="all">Todos</button>
+                <button class="nav-btn" data-filter="theme-football">⚽ Futebol</button>
+                <button class="nav-btn" data-filter="theme-game">🎮 Jogos</button>
+                <button class="nav-btn" data-filter="theme-math">🔢 Matemática</button>
+                <button class="nav-btn" data-filter="theme-strings">📝 Textos</button>
+                <button class="nav-btn" data-filter="lang-javascript">JS</button>
+                <button class="nav-btn" data-filter="lang-csharp">C#</button>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main">
+            <section class="challenges-section">
+                <div class="challenges-grid" id="challengesGrid"></div>
+            </section>
+        </main>
+
+        <!-- Challenge Modal -->
+        <div class="modal" id="challengeModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 id="challengeTitle"></h2>
+                    <button class="close-btn" id="closeModal">&times;</button>
+                </div>
+                
+                <div class="modal-body">
+                    <div class="challenge-description">
+                        <h3>📋 Descrição</h3>
+                        <p id="challengeDescription"></p>
+                        <div id="challengeExamples" class="examples"></div>
+                    </div>
+
+                    <div class="challenge-editor">
+                        <div class="editor-header">
+                            <h3>Código</h3>
+                            <div class="language-selector">
+                                <select id="languageSelect" onchange="switchLanguage()">
+                                    <option value="javascript">JavaScript</option>
+                                    <option value="csharp">C#</option>
+                                </select>
+                            </div>
+                        </div>
+                        <textarea id="codeEditor" class="code-editor" placeholder="Digite seu código aqui..."></textarea>
+                        <div class="editor-actions">
+                            <button id="runBtn" class="btn btn-primary">▶ Executar</button>
+                            <button id="resetBtn" class="btn btn-secondary">🔄 Limpar</button>
+                            <button id="submitBtn" class="btn btn-success">✓ Enviar</button>
+                        </div>
+                    </div>
+
+                    <div class="challenge-output">
+                        <div class="output-section">
+                            <h3>📤 Saída</h3>
+                            <div id="outputArea" class="output-area"></div>
+                        </div>
+
+                        <div class="output-section">
+                            <h3>✅ Testes</h3>
+                            <div id="testsArea" class="tests-area"></div>
+                        </div>
+                    </div>
+
+                    <div class="hints-section">
+                        <button id="showHintBtn" class="btn btn-hint">💡 Mostrar Dica</button>
+                        <div id="hintArea" class="hint-area" style="display:none;"></div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <div id="feedbackArea" class="feedback"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-overlay" id="modalOverlay"></div>
+    </div>
+
+    <script src="challenges.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
